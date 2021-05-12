@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 const base_url = "http://localhost:5000/users";
 
 const EditUser = (props) => {
@@ -9,14 +9,6 @@ const EditUser = (props) => {
   const [dob, setDOB] = useState("");
   const [error, setError] = useState(false);
   const [msg, setMsg] = useState("");
-  useEffect(() => {
-    var date = new Date(props.data["Date of birth"]);
-    const month =
-      date.getMonth() < 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
-    const date_string = `${date.getFullYear()}-${month}-${day}`;
-    setDOB(date_string);
-  }, [props.data]);
 
   const submitHandler = (e) => {
     e.preventDefault();

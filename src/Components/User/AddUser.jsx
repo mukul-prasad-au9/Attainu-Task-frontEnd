@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 const base_url = "http://localhost:5000/users";
 
 const AddUser = (props) => {

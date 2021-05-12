@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import YearFilter from "./YearFilter";
 import CountryFilter from "./CountryFilter";
 const Filter = (props) => {

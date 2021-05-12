@@ -1,5 +1,7 @@
 import EditUser from "./User/EditUser";
 import DeleteUser from "./User/DeleteUser";
+import AddUser from "./User/AddUser";
+
 import { useState } from "react";
 
 const UserDisplay = (props) => {
@@ -68,6 +70,7 @@ const UserDisplay = (props) => {
       </div>
       <EditUser data={userD} key={`edit${userId}`} />
       <DeleteUser userId={userId} key={`delete${userId}`} />
+      <AddUser data={userD} key={`edit${userId}`} />
     </>
   );
 };

@@ -2,15 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Filter from "./Filter/Filter";
 import UserDisplay from "./UserDisplay";
-import AddUser from "./User/AddUser";
 const base_url = "http://localhost:5000/users";
 
 const Home = () => {
   const [page, setPage] = useState(1);
   const [userData, setUser] = useState("");
-  const [filter_value, setFilterValue] = useState("");
-  const [userId, setUserId] = useState("");
-  const [userD, setUserD] = useState("");
 
   useEffect(() => {
     axios
@@ -24,7 +20,7 @@ const Home = () => {
         .get(`${base_url}?_page=${pages}&_limit=20`)
         .then((res) => setUser(res.data));
     } else {
-      var pages = page - 1;
+      pages = page - 1;
       axios
         .get(`${base_url}?_page=${pages}&_limit=20`)
         .then((res) => setUser(res.data));
@@ -40,7 +36,6 @@ const Home = () => {
     } else if (curr_country) {
       filter_url = `Country=${curr_country}`;
     }
-    setFilterValue(filter_url);
     axios(`${base_url}?${filter_url}&_page=${page}&_limit=20`).then((res) =>
       setUser(res.data)
     );
@@ -81,7 +76,6 @@ const Home = () => {
           >
             Forward
           </button>
-          <AddUser data={userD} key={`edit${userId}`} />
         </div>
       </>
     );
